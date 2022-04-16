@@ -13,7 +13,7 @@ entity register_file is
 end register_file;
 
 architecture rf_arch of register_file is
-type rf is array(0 to 7) of std_logic_vector(15 downto 0);
+type rf is array(7 downto 0) of std_logic_vector(15 downto 0);
 signal reg : rf;
 
 begin
