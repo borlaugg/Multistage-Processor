@@ -6,8 +6,8 @@ entity reg is
     generic ( nbits : integer := 16 );
     port (
         clk, rst, en : in std_logic;
-        din : in std_logic_vector(nbits-1 downto 0);
-        dout : out std_logic_vector(nbits-1 downto 0)
+        din          : in std_logic_vector(nbits-1 downto 0);
+        dout         : out std_logic_vector(nbits-1 downto 0)
     );
 end reg;
 
