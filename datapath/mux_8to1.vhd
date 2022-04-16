@@ -20,6 +20,7 @@ begin
     end process;
 end behav;
 
+-- Ulta 8x1 mux, writes the value at y to x(select)
 entity mux_8to1_r is
     generic ( n_bits := integer := 16)
     port (
