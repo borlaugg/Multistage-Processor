@@ -91,41 +91,40 @@ signal temp_op : std_logic_vector(operand_width-1 downto 0):= (others=>'0');
    end AnandB;
 		 
 begin
-
 	alu : process (A, B, sel, co)
 	begin
 	if sel = "00" then
-			temp_op <= add(A,B);
-			op<=temp_op;
-			if(A(15) = B(15)) then
-				c <= A(15);	
-			else
-				c <= not(temp_op(15));
-			end if;
+		temp_op <= add(A,B);
+		op<=temp_op;
 		
-		elsif sel = "01" then
-			temp_op<= addl(A,B) ;
-			op<=temp_op;
-			if(A(15) = B(14)) then
-				c <= A(15);	
-			else
-				c <= not(temp_op(15));
-			end if;
-		elsif sel = "10" then
-			temp_op<= AnandB(A,B);
-			op<=temp_op;
-			c<=co;
-		else 
-			temp_op<=sub(A,B); 
-			op<=temp_op;
-			c<=co;
-		end if;	
-		
-		if (temp_op = "0000000000000000") then 
-			z <= '1';
-		else 
-			z <= '0';
+		if(A(15) = B(15)) then
+			c <= A(15);	
+		else
+			c <= not(temp_op(15));
 		end if;
-
+		
+	elsif sel = "01" then
+		temp_op<= addl(A,B) ;
+		op<=temp_op;
+		if(A(15) = B(14)) then
+			c <= A(15);	
+		else
+			c <= not(temp_op(15));
+		end if;
+	elsif sel = "10" then
+		temp_op<= AnandB(A,B);
+		op<=temp_op;
+		c<=co;
+	else 
+		temp_op<=sub(A,B); 
+		op<=temp_op;
+		c<=co;
+	end if;	
+		
+	if (temp_op = "0000000000000000") then 
+		z <= '1';
+	else 
+		z <= '0';
+	end if;
 	end process ; --alu
 end alu_arch ; -- alu_arch
