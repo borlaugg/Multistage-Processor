@@ -30,7 +30,7 @@ entity machine is
 		inp				: in std_logic_vector(3 downto 0);
         reset,clock		: in std_logic;
         di, t1, cz, alu	: out std_logic_vector(1 downto 0);
-		z, ao, do, inc	: out std_logic;
+		z, cb, ao, do, inc	: out std_logic;
 		ir, pc			: out std_logic_vector(2 downto 0);
 		mux				: out std_logic_vector(3 downto 0);
 		rf				: out std_logic_vector(4 downto 0)
@@ -62,7 +62,7 @@ begin
 		case y_present is
 			when rst=>
 				y_next<=s1;
-				do<= '0';
+				do<='0';
 				di<='00';
 				ao<='0';
 				ir<='000';
@@ -73,10 +73,11 @@ begin
 				di<='00';
 				mux<='0000';
 				alu<='00';
+				cb<='0';
 			when s1=>
 				if(unsigned(decoded)=1) then   --k
 					y_next<=s8;
-					do<= '0';
+					do<='0';
 					di<='00';
 					ao<='0';
 					ir<='000';
@@ -87,8 +88,9 @@ begin
 					di<='00';
 					mux<='0000';
 					alu<='00';
+					cb<='0';
 				elsif(unsigned(decoded)=2) then   
-					do<= '0';
+					do<='0';
 					di<='00';
 					ao<='0';
 					ir<='000';
@@ -100,8 +102,9 @@ begin
 					mux<='0000';
 					alu<='00';
 					y_next<=s6;
+					cb<='0';
 				elsif(unsigned(decoded)=4) then   
-					do<= '0';
+					do<='0';
 					di<='00';
 					ao<='0';
 					ir<='000';
@@ -113,8 +116,9 @@ begin
 					mux<='0000';
 					alu<='00';
 					y_next<=s6;
+					cb<='0';
 				elsif(unsigned(decoded)=8) then    
-					do<= '0';
+					do<='0';
 					di<='00';
 					ao<='0';
 					ir<='000';
@@ -125,9 +129,10 @@ begin
 					di<='00';
 					mux<='0000';
 					alu<='00';
+					cb<='0';
 					y_next<=s4;
 				elsif(unsigned(decoded)=16) then   
-					do<= '0';
+					do<='0';
 					di<='00';
 					ao<='0';
 					ir<='000';
@@ -138,9 +143,10 @@ begin
 					di<='00';
 					mux<='0000';
 					alu<='00';
+					cb<='0';
 					y_next<=s4;
 				elsif(unsigned(decoded)=32) then    
-					do<= '0';
+					do<='0';
 					di<='00';
 					ao<='0';
 					ir<='000';
@@ -151,9 +157,10 @@ begin
 					di<='00';
 					mux<='0000';
 					alu<='00';
+					cb<='0';
 					y_next<=s11;
 				elsif(unsigned(decoded)=64) then   
-					do<= '0';
+					do<='0';
 					di<='00';
 					ao<='0';
 					ir<='000';
@@ -164,9 +171,10 @@ begin
 					di<='00';
 					mux<='0000';
 					alu<='00';
+					cb<='0';
 					y_next<=s5;
 				elsif(unsigned(decoded)=128) then   
-					do<= '0';
+					do<='0';
 					di<='00';
 					ao<='0';
 					ir<='000';
@@ -177,6 +185,7 @@ begin
 					di<='00';
 					mux<='0000';
 					alu<='00';
+					cb<='0';
 					y_next<=s5;
 				elsif(unsigned(decoded)=256) then   
 					do<= '00';
@@ -190,9 +199,10 @@ begin
 					di<='00';
 					mux<='0000';
 					alu<='00';
+					cb<='0';
 					y_next<=s16;
 				elsif(unsigned(decoded)=512) then   
-					do<= '0';
+					do<='0';
 					di<='00';
 					ao<='0';
 					ir<='000';
@@ -203,9 +213,10 @@ begin
 					di<='00';
 					mux<='0000';
 					alu<='00';
+					cb<='0';
 					y_next<=s1;
 				elsif(unsigned(decoded)=1024) then   
-					do<= '0';
+					do<='0';
 					di<='00';
 					ao<='0';
 					ir<='000';
@@ -216,9 +227,10 @@ begin
 					di<='00';
 					mux<='0000';
 					alu<='00';
+					cb<='0';
 					y_next<=s1;
 				elsif(unsigned(decoded)=2048) then   
-					do<= '0';
+					do<='0';
 					di<='00';
 					ao<='0';
 					ir<='000';
@@ -229,10 +241,11 @@ begin
 					di<='00';
 					mux<='0000';
 					alu<='00';
+					cb<='0';
 					y_next<=s8;
 				end if;
 			when s2=>
-				do<= '0';
+				do<='0';
 				di<='00';
 				ao<='0';
 				ir<='010';
@@ -243,9 +256,10 @@ begin
 				di<='00';
 				mux<='0000';
 				alu<='11';
+				cb<='0';
 				y_next<=s3;
 			when s3=>
-				do<= '0';
+				do<='0';
 				di<='00';
 				ao<='0';
 				ir<='010';
@@ -256,9 +270,10 @@ begin
 				di<='00';
 				mux<='0000';
 				alu<='00';
+				cb<='0';
 				y_next<=s1;
 			when s7=>
-				do<= '0';
+				do<='0';
 				di<='00';
 				ao<='0';
 				ir<='011';
@@ -269,9 +284,10 @@ begin
 				di<='00';
 				mux<='0000';
 				alu<='10';
+				cb<='0';
 				y_next<=s3;
 			when s8=>
-				do<= '0';
+				do<='0';
 				di<='00';
 				ao<='0';
 				ir<='001';
@@ -282,10 +298,11 @@ begin
 				di<='00';
 				mux<='0000';
 				alu<='10';
+				cb<='0';
 				y_next<=s3;
 			when s4=>
 				if(unsigned(decode)=16) then
-					do<= '0';
+					do<='0';
 					di<='00';
 					ao<='0';
 					ir<='011';
@@ -296,9 +313,10 @@ begin
 					di<='00';
 					mux<='0000';
 					alu<='10';
+					cb<='0';
 					y_next<=s9;
 				elsif(unsigned(decode)=8) then
-					do<= '0';
+					do<='0';
 					di<='00';
 					ao<='0';
 					ir<='011';
@@ -309,10 +327,11 @@ begin
 					di<='00';
 					mux<='0000';
 					alu<='10';
+					cb<='0';
 					y_next<=s10;
 				end if;
 			when s9=>
-				do<= '0';
+				do<='0';
 				di<='01';
 				ao<='1';
 				ir<='010';
@@ -323,6 +342,7 @@ begin
 				di<='00';
 				mux<='0000';
 				alu<='00';
+				cb<='0';
 				y_next<=s1;
 			when s10=>
 				do<= '1';
@@ -336,6 +356,7 @@ begin
 				di<='00';
 				mux<='0000';
 				alu<='00';
+				cb<='0';
 				y_next<=s1;
 			when s11=>
 				if(z='1') then
@@ -350,7 +371,8 @@ begin
 					di<='00';
 					mux<='0000';
 					alu<='11';
-					y_next<=s12;
+					cb<='0';
+					y_next<=s21;
 				else 
 					do<= '00';
 					di<='00';
@@ -363,10 +385,11 @@ begin
 					di<='00';
 					mux<='0000';
 					alu<='11';
+					cb<='0';
 					y_next<=s19;
 				end if;
 			when s12=>
-				do<= '0';
+				do<='0';
 				di<='00';
 				ao<='0';
 				ir<='010';
@@ -377,9 +400,24 @@ begin
 				di<='00';
 				mux<='0000';
 				alu<='11';
+				cb<='0';
+				y_next<=s13;
+			when s21=>
+				do<='0';
+				di<='00';
+				ao<='0';
+				ir<='010';
+				t1<='00';
+				rf<='00011';
+				inc<='0';
+				pc<='000';
+				di<='00';
+				mux<='0000';
+				alu<='11';
+				cb<='1';
 				y_next<=s13;
 			when s19=>
-				do<= '0';
+				do<='0';
 				di<='00';
 				ao<='0';
 				ir<='000';
@@ -390,9 +428,10 @@ begin
 				di<='00';
 				mux<='0000';
 				alu<='00';
+				cb<='0';
 				y_next<=s1;
 			when s13=>
-				do<= '0';
+				do<='0';
 				di<='00';
 				ao<='0';
 				ir<='000';
@@ -403,10 +442,11 @@ begin
 				di<='00';
 				mux<='0000';
 				alu<='00';
+				cb<='0';
 				y_next<=s1;
 			when s5=>
 				if(unsigned(decode)=128) then
-					do<= '0';
+					do<='0';
 					di<='00';
 					ao<='0';
 					ir<='000';
@@ -417,9 +457,10 @@ begin
 					di<='00';
 					mux<='0000';
 					alu<='11';
+					cb<='0';
 					y_next<=s15;
 				elsif(unsigned(decode)=64) then
-					do<= '0';
+					do<='0';
 					di<='00';
 					ao<='0';
 					ir<='000';
@@ -430,10 +471,11 @@ begin
 					di<='00';
 					mux<='0000';
 					alu<='11';
+					cb<='0';
 					y_next<=s14;
 				end if;
 			when s14=>
-				do<= '0';
+				do<='0';
 				di<='00';
 				ao<='0';
 				ir<='001';
@@ -444,9 +486,10 @@ begin
 				di<='00';
 				mux<='0000';
 				alu<='11';
+				cb<='0';
 				y_next<=s13;
 			when s15=>
-				do<= '0';
+				do<='0';
 				di<='00';
 				ao<='0';
 				ir<='010';
@@ -457,10 +500,11 @@ begin
 				di<='00';
 				mux<='0000';
 				alu<='00';
+				cb<='0';
 				y_next<=s1;
 			when s6=>
 				if (unsigned(cz)=4) then
-					do<= '0';
+					do<='0';
 					di<='00';
 					ao<='0';
 					ir<='010';
@@ -471,9 +515,10 @@ begin
 					di<='00';
 					mux<='0000';
 					alu<='11';
+					cb<='0';
 					y_next<=s17;
 				elsif (unsigned(cz)=2) then
-					do<= '0';
+					do<='0';
 					di<='00';
 					ao<='0';
 					ir<='010';
@@ -484,9 +529,10 @@ begin
 					di<='00';
 					mux<='0000';
 					alu<='11';
+					cb<='0';
 					y_next<=s18;
 				else
-					do<= '0';
+					do<='0';
 					di<='00';
 					ao<='0';
 					ir<='010';
@@ -497,10 +543,11 @@ begin
 					di<='00';
 					mux<='0000';
 					alu<='11';
+					cb<='0';
 					y_next<=s20;
 				end if;
 			when s17=>
-				do<= '0';
+				do<='0';
 				di<='00';
 				ao<='0';
 				ir<='010';
@@ -511,9 +558,10 @@ begin
 				di<='00';
 				mux<='0011';
 				alu<='00';
+				cb<='0';
 				y_next<=s1;
 			when s18=>
-				do<= '0';
+				do<='0';
 				di<='00';
 				ao<='0';
 				ir<='010';
@@ -524,9 +572,10 @@ begin
 				di<='00';
 				mux<='0101';
 				alu<='00';
+				cb<='0';
 				y_next<=s1;
 			when s20=>
-				do<= '0';
+				do<='0';
 				di<='00';
 				ao<='0';
 				ir<='010';
@@ -537,6 +586,7 @@ begin
 				di<='00';
 				mux<='1001';
 				alu<='00';
+				cb<='0';
 				y_next<=s1;
 			end case;
 	end process;
