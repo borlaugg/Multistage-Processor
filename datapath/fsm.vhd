@@ -377,7 +377,7 @@ begin
 				di<='00';
 				mux<='0000';
 				alu<='11';
-				y_next<=s1;
+				y_next<=s13;
 			when s19=>
 				do<= '0';
 				di<='00';

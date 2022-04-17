@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 
 package muxes is
 	component mux_2to1 is
-		generic ( n_bits := integer := 16);
+		generic ( n_bits : integer := 16 );
 		port (
 			type data_arr is array(1 downto 0) of std_logic_vector(nbits-1 downto 0);
 			x : in data_arr;
@@ -44,7 +44,7 @@ package muxes is
 	end component demux_1x4;
 
 	component mux_8to1 is
-		generic ( n_bits := integer := 16);
+		generic ( n_bits : integer := 16 );
 		port (
 			type data_arr is array(7 downto 0) of std_logic_vector(nbits-1 downto 0);
 			x : in data_arr;
@@ -54,7 +54,7 @@ package muxes is
 	end component mux_8to1;
 
 	component demux_1to8 is
-		generic ( n_bits := integer := 16);
+		generic ( n_bits : integer := 16 );
 		port (
 			type data_arr is array(7 downto 0) of std_logic_vector(nbits-1 downto 0);
 			x : out data_arr;
@@ -69,7 +69,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity mux_2to1 is
-	generic ( n_bits := integer := 16);
+	generic ( n_bits : integer := 16);
 	port (
 		type data_arr is array(1 downto 0) of std_logic_vector(nbits-1 downto 0);
 		x : in data_arr;
@@ -141,7 +141,7 @@ begin
 end demux_1x4_arch;
 
 entity mux_8to1 is
-	generic ( n_bits := integer := 16);
+	generic ( n_bits : integer := 16);
 	port (
 		type data_arr is array(7 downto 0) of std_logic_vector(nbits-1 downto 0);
 		x : in data_arr;
@@ -160,7 +160,7 @@ end mux_8x1_arch;
 
 -- Ulta 8x1 mux, writes the value at y to x(select)
 entity demux_1to8 is
-	generic ( n_bits := integer := 16);
+	generic ( n_bits : integer := 16);
 	port (
 		type data_arr is array(7 downto 0) of std_logic_vector(nbits-1 downto 0);
 		x : out data_arr;
