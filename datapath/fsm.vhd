@@ -7,13 +7,13 @@ use work.decode.all
 package FSM is
 	component machine is
 		port(
-			inp				: in std_logic_vector(3 downto 0);
-			reset,clock		: in std_logic;
-			di, t1, cz, alu	: out std_logic_vector(1 downto 0);
-			z, ao, do, inc	: out std_logic;
-			ir, pc			: out std_logic_vector(2 downto 0);
-			mux				: out std_logic_vector(3 downto 0);
-			rf				: out std_logic_vector(4 downto 0)
+			inp					: in std_logic_vector(3 downto 0);
+			reset,clock			: in std_logic;
+			di, t1, cz, alu		: out std_logic_vector(1 downto 0);
+			z, cb, ao, do, inc	: out std_logic;
+			ir, pc				: out std_logic_vector(2 downto 0);
+			mux					: out std_logic_vector(3 downto 0);
+			rf					: out std_logic_vector(4 downto 0)
 		);
 end component machine;
 
@@ -27,13 +27,13 @@ use work.decode.all
 
 entity machine is
 	port(
-		inp				: in std_logic_vector(3 downto 0);
-        reset,clock		: in std_logic;
-        di, t1, cz, alu	: out std_logic_vector(1 downto 0);
+		inp					: in std_logic_vector(3 downto 0);
+        reset,clock			: in std_logic;
+        di, t1, cz, alu		: out std_logic_vector(1 downto 0);
 		z, cb, ao, do, inc	: out std_logic;
-		ir, pc			: out std_logic_vector(2 downto 0);
-		mux				: out std_logic_vector(3 downto 0);
-		rf				: out std_logic_vector(4 downto 0)
+		ir, pc				: out std_logic_vector(2 downto 0);
+		mux					: out std_logic_vector(3 downto 0);
+		rf					: out std_logic_vector(4 downto 0)
 	);
 end machine;
 
