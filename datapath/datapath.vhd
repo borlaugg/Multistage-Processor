@@ -207,4 +207,3 @@ begin
 
 	-- register_file :
 	-- 	regfile port map (rf_a1_i, rf_a2_i, rf_a3_i, rf_d1_o, rf_d2_o, rf_d3_o);
-	
