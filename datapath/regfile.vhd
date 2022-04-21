@@ -2,15 +2,19 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity register_file is
+entity regfile is
 	port (
-		rf_d1, rf_d2        : out std_logic_vector(15 downto 0);
+		rf_a1 : in std_logic_vector(2 downto 0);
+		rf_a2 : in std_logic_vector(2 downto 0);
+		rf_a3 : in std_logic_vector(2 downto 0);
+		rf_d1 : out std_logic_vector(15 downto 0);
+		rf_d1 : out std_logic_vector(15 downto 0);
 		rf_d3               : in std_logic_vector(15 downto 0);
 		wr_en               : in std_logic;
-		clk, rst            : in std_logic;
-		rf_a1, rf_a2, rf_a3 : in std_logic_vector(2 downto 0)
+		clk, rst            : in std_logic
+		
 	);
-end register_file;
+end regfile;
 
 architecture rf_arch of register_file is
 type rf is array(7 downto 0) of std_logic_vector(15 downto 0);

@@ -25,7 +25,7 @@ begin
 	begin
 		if(rising_edge(clock)) then
 			if(write_in='1') then 
-				ram_data(to_integer(unsigned(address))) <= data_in;
+				mem_data(to_integer(unsigned(address))) <= data_in;
 			end if;
 		end if;
 	end process;
